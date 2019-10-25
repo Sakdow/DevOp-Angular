@@ -1,4 +1,23 @@
-<p>display-books works!</p>
-<ul>
-    <li *ngFor="let book of books">{{ book.title }}</li>
-</ul>
+
+<div class="first-header">
+    <H2>display-books works!</H2>
+</div>
+
+<mat-card class="book" *ngFor="let book of books">
+    <mat-card-header>
+        <mat-card-title class="book-card-title">{{book.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{book.author}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button _ngcontent-nll-c20="" mat-button="" class="mat-raised-button mat-button-base mat-warn" color="warn" (click)="delete(book)">
+            <span class="mat-button-wrapper"><mat-icon>delete</mat-icon></span>
+        </button>
+        <button _ngcontent-nll-c20="" mat-button="" class="mat-raised-button mat-button-base mat-primary" color="primary" [routerLink]="['book',book.id]">
+            <span class="mat-button-wrapper"><mat-icon>book icon</mat-icon></span>
+        </button>
+    </mat-card-actions>
+</mat-card>

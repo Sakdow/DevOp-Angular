@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Book} from '../shared/book';
 import {ServiceLivreService} from '../service-livre.service';
 
@@ -9,11 +9,21 @@ import {ServiceLivreService} from '../service-livre.service';
 })
 export class DisplayBooksComponent implements OnInit {
     books : Book[];
+
     constructor(private bookService : ServiceLivreService) {
     }
 
     ngOnInit() {
-        this.books = [this.bookService.getBook()];
+        this.bookService.getBooks().subscribe({
+            next : books => this.books = books
+        });
+        return this.books;
     }
 
+    delete(book : Book){
+        const index: number = this.books.indexOf(book);
+        if (index !== -1) {
+            this.books.splice(index, 1);
+        }
+    }
 }

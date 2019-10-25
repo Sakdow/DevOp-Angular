@@ -1,0 +1,25 @@
+h2 {
+    color: white;
+    text-align : center;
+}
+
+.book {
+    max-width: 20%;
+    margin: 2em;
+    text-align: center;
+}
+
+.first-header {
+    background: #9c27b0;
+    padding: 6px;
+}
+
+.book-card-button {
+    margin-right : 1em;
+}
+
+mat-card-header{
+    display: flex;
+    align-items : center;
+    justify-content: center;
+}
